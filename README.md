@@ -9,7 +9,7 @@ Deixei alguns rótulos com o significado de cada cor presente nas células:
 ![Imagem dos rótulos](img.png)
 
 A rede usa SSE (Soma dos erros quadráticos) como função de custo com o ajuste de 1/2 para simplificar o cálculo do gradiente posteriormente.  
-$$\frac{1}{2}\sum _{i=1}^n\left(y_i - \hat{y}_i\right)^2$$
+$\frac{1}{2}\sum _{i=1}^n\left(y_i - \hat{y}_i\right)^2$
 
 Também utilizei a função ReLU nas saídas ocultas para zerar valores <= 0, e a função Sigmoide nas camadas de saída para predição binária.  
 
@@ -25,17 +25,18 @@ Use o projeto da forma que quiser, desde que não prejudique outros. Passar por 
 ---
 
 A matemática para o cálculo dos gradientes:  
-Gradiente médio da camada oculta:
-Peso:
-$$\frac{\partial J}{\partial w^{(1)}_{mj}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})\cdot w^{(2)}_{jk}\cdot f'(z^{(1)}_i)\cdot x_{m,i}$$  
+Gradiente médio da camada oculta:  
+Peso:  
+$\frac{\partial J}{\partial w_{mj}^{(1)}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})\cdot w^{(2)}_{jk}\cdot f'(z^{(1)}_i)\cdot x _{m,i}$  
   
 Viés:  
-$$\frac{\partial J}{\partial  b^{(1)}_{j}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})\cdot w^{(2)}_{jk}\cdot f'(z^{(1)}_i)$$
+$\frac{\partial J}{\partial  b_{j}^{(1)}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})\cdot w^{(2)}_{jk}\cdot f'(z^{(1)}_i)$  
 
-Gradiente médio da camada de saída:
-Peso:
-$$\frac{\partial J}{\partial w^{(2)}_{jk}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})\cdot h_{i,j}$$
+Gradiente médio da camada de saída:  
 
-Viés:
-$$\frac{\partial J}{\partial b^{(2)}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i}) $$
+Peso:  
+$\frac{\partial J}{\partial w_{jk}^{(2)}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})\cdot h_{i,j}$  
+
+Viés:  
+$\frac{\partial J}{\partial b^{(2)}} = \frac{1}{n}\sum^n_{i=1}(\hat{y_i}-y_i)\cdot\hat{y_i}(1-\hat{y_i})$
 
